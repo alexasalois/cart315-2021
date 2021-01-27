@@ -1,0 +1,5 @@
+sceneSetups:
+- path: Assets/asalois_cart315_ass1.unity
+  isLoaded: 1
+  isActive: 1
+  isSubScene: 0
