@@ -7,7 +7,7 @@ public class CharacterControl : MonoBehaviour {
     public float moveSpeed;
 
     void Start() {
-      moveSpeed = 10f;
+      moveSpeed = 20f;
     }
 
     void Update() {
