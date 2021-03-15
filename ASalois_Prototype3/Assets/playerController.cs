@@ -24,5 +24,11 @@ public class playerController : MonoBehaviour
       //  rb.velocity = new Vector3(moveDirectionSide, 0 * moveSpeed);
 
     }
+
+    void OnTriggerEnter2D(Collider2D other) {
+        if(other.gameObject.CompareTag("Obstacle")) {
+            Destroy(gameObject);
+        }
+    }
 }
  
