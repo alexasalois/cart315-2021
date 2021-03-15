@@ -37,6 +37,6 @@ public class backgroundScroll : MonoBehaviour
     }
 
     void ResetObstacle() {
-        transform.GetChild(0).localPosition = new Vector3(0, Random.Range(-3,3),0);
+        transform.GetChild(0).localPosition = new Vector3(0, Random.Range(-4,4),0);
     }
 }
