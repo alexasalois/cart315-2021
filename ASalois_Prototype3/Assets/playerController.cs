@@ -28,6 +28,7 @@ public class playerController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.CompareTag("Obstacle")) {
             Destroy(gameObject);
+            Debug.Log("u dead");
         }
     }
 }
