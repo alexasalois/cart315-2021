@@ -24,32 +24,29 @@ public class playerController : MonoBehaviour
         float moveDirection = Input.GetAxisRaw("Vertical");
         rb.velocity = new Vector2(0, moveDirection * moveSpeed);
 
+        void OnTriggerEnter2D(Collider2D other)
+        {
+            if(other.gameObject.CompareTag("Obstacle"))
+            {
+              playerLife -= 1;
+              Debug.Log(playerLife);
+            }
+
+            if(playerLife == 0)
+            {
+              Destroy(gameObject);
+            }
+        }
+
       //  float moveDirectionSide = Input.GetAxisRaw("Horizontal");
       //  rb.velocity = new Vector3(moveDirectionSide, 0 * moveSpeed);
 
             timer += Time.deltaTime;
-
-            if (timer > 2f)
+            if (timer > 1f)
             {
-              score += 50;
+              score += 1;
               timer = 0;
+              Debug.Log(score);
             }
-
-                  Debug.Log(score);
-
-            void OnTriggerEnter2D(Collider2D other)
-            {
-                if(other.gameObject.CompareTag("Obstacle"))
-                {
-                  playerLife -= 1;
-                  Debug.Log(playerLife);
-                }
-
-                if(playerLife == 0)
-                {
-                  Destroy(gameObject);
-                }
-            }
+          }
         }
-
-      }

@@ -8,10 +8,9 @@ public class backgroundScroll : MonoBehaviour
     public BoxCollider2D collider;
     public Rigidbody2D rb;
 
-    public float timer;
-
     private float width;
     private float scrollSpeed = -5f;
+    public float timer;
 
     // Start is called before the first frame update
     void Start()
