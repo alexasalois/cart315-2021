@@ -7,6 +7,7 @@ public class playerController : MonoBehaviour
 
     public Rigidbody2D rb;
     public float moveSpeed = 5;
+    public float playerLife = 3;
 
     // Start is called before the first frame update
     void Start()
@@ -27,8 +28,12 @@ public class playerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.CompareTag("Obstacle")) {
-            Destroy(gameObject);
-            Debug.Log("u dead");
+            playerLife -= 1;
+            Debug.Log(playerLife);
+        }
+
+        if(playerLife == 0) {
+          Destroy(gameObject);
         }
     }
 }
