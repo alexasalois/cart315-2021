@@ -6,7 +6,7 @@ public class playerController : MonoBehaviour
 {
 
     public Rigidbody2D rb;
-    public float moveSpeed = 5;
+    public float moveSpeed = 10;
     public float playerLife = 3;
 
     // Start is called before the first frame update
@@ -30,6 +30,7 @@ public class playerController : MonoBehaviour
         if(other.gameObject.CompareTag("Obstacle")) {
             playerLife -= 1;
             Debug.Log(playerLife);
+            //scrollSpeed -= 5;
         }
 
         if(playerLife == 0) {

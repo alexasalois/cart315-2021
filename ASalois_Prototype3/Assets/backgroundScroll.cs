@@ -9,7 +9,7 @@ public class backgroundScroll : MonoBehaviour
     public Rigidbody2D rb;
 
     private float width;
-    private float scrollSpeed = -2f;
+    private float scrollSpeed = -5f;
 
     // Start is called before the first frame update
     void Start()
@@ -28,8 +28,8 @@ public class backgroundScroll : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.x < -width) 
-        {  
+        if (transform.position.x < -width)
+        {
           Vector2 resetPosition = new Vector2(width * 2f,0);
           transform.position = (Vector2)transform.position + resetPosition;
           ResetObstacle();
