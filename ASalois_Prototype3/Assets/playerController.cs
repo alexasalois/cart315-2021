@@ -5,6 +5,9 @@ using UnityEngine;
 public class playerController : MonoBehaviour
 {
 
+    public float timer;
+    public float score;
+
     public Rigidbody2D rb;
     public float moveSpeed = 10;
     public float playerLife = 3;
@@ -24,17 +27,29 @@ public class playerController : MonoBehaviour
       //  float moveDirectionSide = Input.GetAxisRaw("Horizontal");
       //  rb.velocity = new Vector3(moveDirectionSide, 0 * moveSpeed);
 
-    }
+            timer += Time.deltaTime;
 
-    void OnTriggerEnter2D(Collider2D other) {
-        if(other.gameObject.CompareTag("Obstacle")) {
-            playerLife -= 1;
-            Debug.Log(playerLife);
-            //scrollSpeed -= 5;
+            if (timer > 2f)
+            {
+              score += 50;
+              timer = 0;
+            }
+
+                  Debug.Log(score);
+
+            void OnTriggerEnter2D(Collider2D other)
+            {
+                if(other.gameObject.CompareTag("Obstacle"))
+                {
+                  playerLife -= 1;
+                  Debug.Log(playerLife);
+                }
+
+                if(playerLife == 0)
+                {
+                  Destroy(gameObject);
+                }
+            }
         }
 
-        if(playerLife == 0) {
-          Destroy(gameObject);
-        }
-    }
-}
+      }
