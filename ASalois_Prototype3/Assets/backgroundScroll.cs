@@ -8,8 +8,10 @@ public class backgroundScroll : MonoBehaviour
     public BoxCollider2D collider;
     public Rigidbody2D rb;
 
+    public float timer;
+
     private float width;
-    private float scrollSpeed = -10f;
+    private float scrollSpeed = -5f;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +22,7 @@ public class backgroundScroll : MonoBehaviour
         width = collider.size.x;
         collider.enabled = false;
 
-        rb.velocity = new Vector2(scrollSpeed, 0);
+      //  rb.velocity = new Vector2(scrollSpeed, 0);
 
         ResetObstacle();
     }
@@ -28,12 +30,25 @@ public class backgroundScroll : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+      rb.velocity = new Vector2(scrollSpeed, 0);
+
+
         if (transform.position.x < -width)
         {
           Vector2 resetPosition = new Vector2(width * 2f,0);
           transform.position = (Vector2)transform.position + resetPosition;
           ResetObstacle();
         }
+
+        timer += Time.deltaTime;
+
+        if (timer > 6f)
+        {
+          scrollSpeed -= 2;
+          timer = 0;
+        }
+
     }
 
     void ResetObstacle() {
