@@ -12,7 +12,7 @@ public class playerController : MonoBehaviour
     public BoxCollider2D collider;
 
     public float moveSpeed = 10;
-    public float playerLife = 6;
+    public float playerLife = 2;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +23,6 @@ public class playerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("update function...");
         float moveDirection = Input.GetAxisRaw("Vertical");
         rb.velocity = new Vector2(0, moveDirection * moveSpeed);
 
@@ -43,14 +42,20 @@ public class playerController : MonoBehaviour
       {
           if(other.gameObject.CompareTag("Obstacle"))
           {
-            playerLife -= 1;
-            Debug.Log(playerLife);
+            //playerLife -= 1;
+            //Debug.Log(playerLife);
 
-          }
+          //}
 
-          if(playerLife == 0)
-          {
+          //if(playerLife == 0)
+          //{
             Destroy(gameObject);
-          }
+
+            if(Input.GetKeyDown(KeyCode.R)) {
+              UnityEngine.SceneManagement.SceneManager.LoadScene("SampleScene");
+              Debug.Log("new game?");
+            }
+          //}
         }
       }
+    }
