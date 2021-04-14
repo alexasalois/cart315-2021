@@ -12,7 +12,7 @@ public class playerController : MonoBehaviour
     public BoxCollider2D collider;
 
     public float moveSpeed = 10;
-    public float playerLife = 4;
+    public float playerLife = 6;
 
     // Start is called before the first frame update
     void Start()
@@ -41,11 +41,11 @@ public class playerController : MonoBehaviour
 
       void OnTriggerEnter2D(Collider2D other)
       {
-          Debug.Log("this is the collision trigger");
           if(other.gameObject.CompareTag("Obstacle"))
           {
             playerLife -= 1;
             Debug.Log(playerLife);
+
           }
 
           if(playerLife == 0)
