@@ -42,7 +42,7 @@ public class backgroundScroll : MonoBehaviour
 
         timer += Time.deltaTime;
 
-        if (timer > 6f)
+        if (timer > 12f)
         {
           scrollSpeed -= 2;
           timer = 0;

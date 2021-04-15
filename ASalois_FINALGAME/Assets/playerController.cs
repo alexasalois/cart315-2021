@@ -1,12 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class playerController : MonoBehaviour
 {
 
     public float timer;
     public float score;
+
+    //string scoreNumber = score.ToString();
+
+    public Text scoreText;
+
+  //  public static int score;
 
     public Rigidbody2D rb;
     public BoxCollider2D collider;
@@ -35,7 +42,13 @@ public class playerController : MonoBehaviour
               score += 1;
               timer = 0;
               Debug.Log(score);
+
+              //scoreText.text = scoreNumber;
+
+
             }
+
+
           }
 
       void OnTriggerEnter2D(Collider2D other)
